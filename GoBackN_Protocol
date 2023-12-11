@@ -1,1 +1,47 @@
+Sender Class (Sender):
 
+    Responsibility: Simulates the behavior of the sender node in the Go-Back-N protocol.
+    Variables:
+        windowSize: Represents the size of the sender's window for sending packets.
+        base: Indicates the sequence number of the oldest unacknowledged packet.
+        nextSeqNum: Tracks the sequence number of the next packet to be sent.
+        totalPackets: Represents the total number of packets to be sent.
+        acks: An array to store acknowledgment statuses for packets.
+
+Sender Methods:
+
+    send(): Implements the sender's logic for sending packets and handling acknowledgments.
+    Logic:
+        The sender sends packets in a loop until all packets are acknowledged.
+        It maintains a sending window based on the windowSize.
+        Checks for acknowledgments and retransmits packets on timeout events.
+        Simulates ACK reception and packet retransmission based on Go-Back-N behavior.
+
+Receiver Class (Receiver):
+
+    Responsibility: Simulates the behavior of the receiver node in the Go-Back-N protocol.
+    Variables:
+        base: Represents the sequence number of the oldest packet expected by the receiver.
+        totalPackets: Indicates the total number of packets to be received.
+        recvd: An array to track received packets.
+
+Receiver Method:
+
+    receive(): Implements the receiver's logic for receiving packets and sending acknowledgments.
+    Logic:
+        Simulates the reception of packets and sends acknowledgments.
+        Handles the expected sequence number and ACK generation based on received packets.
+
+main() Function:
+
+    Initializes the sender and receiver objects.
+    Executes the simulation by calling the send() and receive() methods.
+    Simulates the interaction between sender and receiver, displaying messages for packet transmission, reception, timeouts, and acknowledgments.
+
+Simulation Flow:
+
+    The sender generates packets, simulates transmissions, and handles timeouts or lost acknowledgments.
+    The receiver receives packets, generates acknowledgments, and handles out-of-sequence packets.
+    The simulation displays messages to depict the exchange of packets and acknowledgments between sender and receiver.
+
+This code is a simplified simulation to illustrate the Go-Back-N protocol's basic functioning without actual network communication. It's designed to demonstrate the sender's and receiver's behaviors in handling packets and acknowledgments within a simulated environment.
